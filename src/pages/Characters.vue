@@ -77,7 +77,7 @@ const clearQuery = () => {
             <input
               type="text"
               class="form-control"
-              placeholder="Name"
+              placeholder=""
               aria-label="name"
               aria-describedby="basic-addon1"
               v-model="name"
