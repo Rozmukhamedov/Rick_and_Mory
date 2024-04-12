@@ -7,7 +7,7 @@ import Card from "../components/Card.vue";
 
 const data = ref([]);
 const loading = ref(false);
-const error = ref(null);
+const error = ref();
 
 const route = useRoute();
 const router = useRouter();
@@ -24,8 +24,14 @@ async function fetchData() {
       `https://rickandmortyapi.com/api/character${route.fullPath}`
     );
     data.value = res.data.results;
+    error.value = 200;
   } catch (err) {
-    console.log(err);
+    if (err.response.status == 404) {
+      data.value = [];
+      error.value = err.response.status;
+      return;
+    }
+    error.value = err.response.status;
   }
 }
 
@@ -134,6 +140,14 @@ const clearQuery = () => {
             :species="item.species"
           />
         </div>
+
+        <div
+          v-if="error == 404"
+          class="col-12 mb-3 d-flex justify-content-center"
+        >
+          <h2>characters not found</h2>
+        </div>
+
         <div class="col-12 mb-3 d-flex justify-content-center">
           <button
             type="button"
