@@ -24,7 +24,7 @@ import logoImg from "../assets/images/logo-black 1.png";
               >Characters
             </router-link>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link active-class="active" to="/episodes" class="nav-link"
               >Episodes</router-link
             >
@@ -33,7 +33,7 @@ import logoImg from "../assets/images/logo-black 1.png";
             <router-link active-class="active" to="/locations" class="nav-link"
               >Locations</router-link
             >
-          </li>
+          </li> -->
         </ul>
       </header>
     </div>
